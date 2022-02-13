@@ -2,7 +2,7 @@ require 'plugins/material-custom'
 local opt = vim.opt
 local cmd = vim.cmd
 
-vim.g.material_style = "palenight"
+vim.g.material_style = "deep ocean"
 cmd 'colorscheme material'
 
 opt.termguicolors = true
@@ -25,4 +25,7 @@ opt.autoindent = true
 opt.expandtab = true
 opt.shiftwidth = 2
 opt.softtabstop = 2
+--opt.shiftwidth = 4
+--opt.softtabstop = 4
+
 opt.signcolumn = 'yes'

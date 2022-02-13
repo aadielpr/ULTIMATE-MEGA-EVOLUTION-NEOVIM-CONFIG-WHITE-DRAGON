@@ -1,8 +1,8 @@
 require('lualine').setup {
   options = {
-    section_separators = '', 
-    component_separators = '',
-    theme = 'nord',
+    section_separators = '',
+    component_separators = {left = '', right = ''},
+    theme = 'material-nvim',
     disabled_filetypes = {'NvimTree'},
   },
   sections = {
@@ -11,11 +11,13 @@ require('lualine').setup {
     lualine_c = {'filename'},
     lualine_x = {
       { 'diagnostics',
-        sources = {"nvim_lsp"},
+        sources = {"nvim_diagnostic"},
         symbols = {error = ' ', warn = ' ', info = ' ', hint = ' '}
       },
       'encoding',
-      'filetype'
+      {'filetype',
+        icon_only = true
+      }
     },
     lualine_y = {}
   }
