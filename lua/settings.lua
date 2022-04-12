@@ -2,7 +2,7 @@ require 'plugins/material-custom'
 local opt = vim.opt
 local cmd = vim.cmd
 
-vim.g.material_style = "deep ocean"
+vim.g.material_style = "oceanic"
 cmd 'colorscheme material'
 
 opt.termguicolors = true

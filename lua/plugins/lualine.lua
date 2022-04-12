@@ -2,7 +2,7 @@ require('lualine').setup {
   options = {
     section_separators = '',
     component_separators = {left = '', right = ''},
-    theme = 'material-nvim',
+    theme = 'material',
     disabled_filetypes = {'NvimTree'},
   },
   sections = {

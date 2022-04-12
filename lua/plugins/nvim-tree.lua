@@ -12,8 +12,8 @@ g.nvim_tree_show_icons = {
 g.nvim_tree_icons = {
 	default = "",
         git = {
-          untracked = "ᴜ",
-          unstaged = "ᴍ"
+          untracked = "",
+          unstaged = ""
         }
 }
 -- set number on tree
@@ -31,7 +31,8 @@ require'nvim-tree'.setup {
   view = {
     width = 35,
     auto_resize = true,
-    hide_root_folder = true
+    hide_root_folder = true,
+    side = 'left'
   },
   filters = { 
     dotfiles = true,

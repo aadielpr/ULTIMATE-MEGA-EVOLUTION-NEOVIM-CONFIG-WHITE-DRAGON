@@ -9,6 +9,13 @@ require('packer').startup(function ()
   use 'wbthomason/packer.nvim'
   use 'shaunsingh/nord.nvim'
   use 'marko-cerovac/material.nvim'
+  use 'mhartington/oceanic-next'
+
+  -- TERMINAL
+  use {
+    'akinsho/toggleterm.nvim',
+    config = function() require 'plugins.toggleterm' end
+  }
 
   -- LSP
   use {
