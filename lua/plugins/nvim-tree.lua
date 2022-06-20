@@ -11,10 +11,12 @@ require'nvim-tree'.setup {
     side = 'left'
   },
   renderer = {
+    highlight_git = true,
     icons = {
       git_placement = "signcolumn",
       show = {
-        folder_arrow = false
+        folder_arrow = false,
+        git = true
       }
     }
   },
