@@ -1,10 +1,10 @@
-require 'plugins/material-custom'
 local opt = vim.opt
 local cmd = vim.cmd
 
-vim.g.material_style = "oceanic"
-cmd 'colorscheme material'
-
+opt.splitbelow = true
+opt.splitright = true
+opt.showmode = false
+opt.mouse = 'a'
 opt.termguicolors = true
 opt.hidden = true
 opt.updatetime = 300
@@ -16,16 +16,18 @@ opt.writebackup = false
 opt.number = true
 opt.cursorline = true
 opt.belloff = 'all'
-opt.colorcolumn = '100'
+--opt.colorcolumn = '100'
 opt.tagrelative = false
 opt.fileformat = 'unix'
 opt.wrap = false
 opt.smartindent = true
 opt.autoindent = true
 opt.expandtab = true
+opt.scrolloff = 8
+opt.sidescrolloff = 8
 opt.shiftwidth = 2
 opt.softtabstop = 2
---opt.shiftwidth = 4
---opt.softtabstop = 4
+-- opt.shiftwidth = 4
+opt.softtabstop = 4
 
 opt.signcolumn = 'yes'

@@ -7,10 +7,16 @@ end
 require('packer').startup(function ()
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
-  use 'shaunsingh/nord.nvim'
-  use 'marko-cerovac/material.nvim'
   use 'mhartington/oceanic-next'
+  use {
+    'folke/tokyonight.nvim',
+    config = function() require 'plugins.tokyonight' end
+  }
 
+  use {
+    'numToStr/Comment.nvim',
+    config = function() require 'plugins.comment' end
+  }
   -- TERMINAL
   use {
     'akinsho/toggleterm.nvim',
@@ -36,7 +42,10 @@ require('packer').startup(function ()
   }
 
   -- ICONS FOR LUA-LINE & NVIM-TREE
-  use 'kyazdani42/nvim-web-devicons'
+  use {
+    'kyazdani42/nvim-web-devicons',
+    config = function() require 'plugins.dev-icons' end
+  }
 
   -- LUALINE / AIRLINE(lua)
   use {

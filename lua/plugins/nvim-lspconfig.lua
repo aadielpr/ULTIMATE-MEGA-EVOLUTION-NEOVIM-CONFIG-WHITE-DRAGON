@@ -19,7 +19,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
   buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
 --  buf_set_keymap('n', '<leader>h', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  buf_set_keymap('n', 'rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+  buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   buf_set_keymap('n','<space>.','<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   buf_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
   buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
@@ -80,7 +80,7 @@ lspconfig.efm.setup {
 -- vim.api.nvim_command [[autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics({focusable=false})]]
 -- vim.api.nvim_command [[autocmd CursorHoldI * silent! lua vim.lsp.buf.signature_help()]]
 
-vim.fn.sign_define("DiagnosticSignError", {text = "", texthl = "LspDiagnosticsSignError"})
-vim.fn.sign_define("DiagnosticSignWarn", {text = "", texthl = "LspDiagnosticsSignWarning"})
-vim.fn.sign_define("DiagnosticSignInfo", {text = "", texthl = "LspDiagnosticsSignInformation"})
-vim.fn.sign_define("DiagnosticSignHint", {text = "", texthl = "LspDiagnosticsSignHint"})
+vim.fn.sign_define("DiagnosticSignError", {text = "", texthl = "DiagnosticError", numhl = ""})
+vim.fn.sign_define("DiagnosticSignWarn", {text = "", texthl = "DiagnosticWarn", numhl = ""})
+vim.fn.sign_define("DiagnosticSignInfo", {text = "", texthl = "DiagnosticInfo", numhl = ""})
+vim.fn.sign_define("DiagnosticSignHint", {text = "", texthl = "DiagnosticHint", numhl = ""})

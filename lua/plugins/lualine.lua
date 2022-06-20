@@ -1,24 +1,35 @@
 require('lualine').setup {
   options = {
+    component_separators = '|',
     section_separators = '',
-    component_separators = {left = '', right = ''},
-    theme = 'material',
+    theme = 'tokyonight',
     disabled_filetypes = {'NvimTree'},
   },
   sections = {
     lualine_a = {'mode'},
-    lualine_b = {'branch'},
-    lualine_c = {'filename'},
-    lualine_x = {
+    lualine_b = {'filename', 'branch'},
+    lualine_c = {
       { 'diagnostics',
         sources = {"nvim_diagnostic"},
-        symbols = {error = ' ', warn = ' ', info = ' ', hint = ' '}
+        symbols = {error = " ", warn = " ", info = " ", hint = " "}
       },
-      'encoding',
+    },
+    lualine_x = {},
+    lualine_y = {
       {'filetype',
         icon_only = true
       }
     },
-    lualine_y = {}
-  }
+    lualine_z = {'location'},
+  },
+  inactive_sections = {
+    lualine_a = { 'filename' },
+    lualine_b = {},
+    lualine_c = {},
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = { 'location' },
+  },
+  tabline = {},
+  extensions = {},
 }

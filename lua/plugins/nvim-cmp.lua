@@ -3,10 +3,10 @@ local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 local kind_icons = {
   Text = "",
   Method = "",
-  Function = "",
+  Function = "",
   Constructor = "",
   Field = "",
-  Variable = "[]",
+  Variable = "",
   Class = "פּ",
   Interface = "蘒",
   Module = "",
@@ -30,7 +30,7 @@ local kind_icons = {
 
 cmp.setup({
   formatting = {
-    fields = { 'kind', 'abbr' },
+    fields = { 'abbr', 'kind' },
     format = function(entry, vim_item)
       vim_item.kind = string.format('%s', kind_icons[vim_item.kind])
       return vim_item
@@ -74,8 +74,8 @@ cmp.setup({
   }, {
     { name = 'buffer' },
   }),
-  documentation = {
-    border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" }
+  window = { 
+    documentation = cmp.config.window.bordered()
   }
 })
 
