@@ -2,6 +2,7 @@ local function map(mod, lhs, rhs, opt)
   return vim.api.nvim_set_keymap(mod, lhs, rhs, opt or {})
 end
 
+local opt = { noremap = true, silent = true }
 -- Split window
 map('n', 'ss', '<Cmd>split<CR><C-w>w', { noremap = true })
 map('n', 'sv', '<Cmd>vsplit<CR><C-w>w', { noremap = true })
@@ -20,3 +21,7 @@ map('n', '<leader>v', ':noh<CR>', { silent = true })
 map('', '<leader>c', '"+y', opt)
 map('', '<leader>x', '"+d', opt)
 map('', '<leader>p', '"+p', opt)
+
+map('n', 'sj', ':m+<CR>', opt)
+map('n', 'sk', ':m-2<CR>', opt)
+

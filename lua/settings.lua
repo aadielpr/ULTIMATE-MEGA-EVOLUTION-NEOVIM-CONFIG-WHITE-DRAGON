@@ -16,7 +16,8 @@ opt.writebackup = false
 opt.number = true
 opt.cursorline = true
 opt.belloff = 'all'
---opt.colorcolumn = '100'
+opt.pumheight = 10
+opt.signcolumn = 'yes'
 opt.tagrelative = false
 opt.fileformat = 'unix'
 opt.wrap = false
@@ -25,9 +26,21 @@ opt.autoindent = true
 opt.expandtab = true
 opt.scrolloff = 8
 opt.sidescrolloff = 8
-opt.shiftwidth = 2
-opt.softtabstop = 2
--- opt.shiftwidth = 4
+opt.shiftwidth = 4
 opt.softtabstop = 4
+opt.relativenumber = true
+opt.list = true
+opt.listchars:append('tab:> ')
 
-opt.signcolumn = 'yes'
+--opt.colorcolumn = '100'
+
+--vim.cmd 'colorscheme minimal-base16'
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "go",
+  callback = function()
+      opt.shiftwidth = 8
+      opt.softtabstop = 8
+      opt.expandtab = false
+    end
+})
