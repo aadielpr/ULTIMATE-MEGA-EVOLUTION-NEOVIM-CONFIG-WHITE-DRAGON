@@ -1,86 +1,90 @@
-local cmp = require 'cmp'
-local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-local kind_icons = {
-    Text = "",
-    Method = "",
-    Function = "",
-    Constructor = "",
-    Field = "",
-    Variable = "",
-    Class = "פּ",
-    Interface = "蘒",
-    Module = "",
-    Property = " ",
-    Unit = "塞",
-    Value = "",
-    Enum = "練",
-    Keyword = "",
-    Snippet = "",
-    Color = " ",
-    File = "",
-    Reference = "",
-    Folder = "ﱮ",
-    EnumMember = "",
-    Constant = "",
-    Struct = "",
-    Event = "",
-    Operator = "",
-    TypeParameter = "<>"
-}
+local cmp = require("cmp")
+local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+local luasnip = require("luasnip")
 
-cmp.setup({
+local function border(hl_name)
+    return {
+        { "╭", hl_name },
+        { "─", hl_name },
+        { "╮", hl_name },
+        { "│", hl_name },
+        { "╯", hl_name },
+        { "─", hl_name },
+        { "╰", hl_name },
+        { "│", hl_name },
+    }
+end
+
+cmp.setup {
+    completion = {
+        completeopt = "menu,menuone",
+    },
     formatting = {
-        fields = {'abbr', 'kind'},
-        format = function(entry, vim_item)
-            vim_item.kind = string.format('%s', kind_icons[vim_item.kind])
-            return vim_item
-        end
+        fields = { "abbr", "kind", "menu" },
+        format = function(_, item)
+            local icons = require("plugins.utils.icons").lspkind
+            local icon = (" " .. icons[item.kind] .. " ") or ""
+            item.kind = string.format("%s %s", icon, item.kind)
+            return item
+        end,
     },
     snippet = {
         expand = function(args)
-            require('luasnip').lsp_expand(args.body)
-        end
-    },
-    completion = {
-        keyword_length = 3,
-        autocomplete = false
+            require("luasnip").lsp_expand(args.body)
+        end,
     },
     mapping = {
-        ['<Esc>'] = cmp.mapping.abort(),
-        ['<C-Space>'] = cmp.mapping.complete(),
-        ['<C-y>'] = cmp.config.disable,
-        ['<C-e>'] = cmp.mapping.close(),
-        ['<CR>'] = cmp.mapping.confirm({
+        ["<Esc>"] = cmp.mapping.abort(),
+        ["<C-Space>"] = cmp.mapping.complete(),
+        ["<C-y>"] = cmp.config.disable,
+        ["<C-e>"] = cmp.mapping.close(),
+        ["<CR>"] = cmp.mapping.confirm {
             behavior = cmp.ConfirmBehavior.Replace,
-            select = true
-        }),
-        ['<Tab>'] = function(fallback)
+            select = true,
+        },
+        ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
+            elseif luasnip.expand_or_jumpable() then
+                luasnip.expand_or_jump()
             else
                 fallback()
             end
-        end,
-        ['<S-Tab>'] = function(fallback)
+        end, {
+            "i",
+            "s",
+        }),
+        ["<S-Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_prev_item()
+            elseif luasnip.jumpable(-1) then
+                luasnip.jump(-1)
             else
                 fallback()
             end
-        end
+        end, {
+            "i",
+            "s",
+        }),
     },
-    sources = cmp.config.sources({{
-        name = 'nvim_lsp'
-    }}, {{
-        name = 'buffer'
-    }}),
-    window = {
-        documentation = cmp.config.window.bordered()
-    }
-})
+    sources = {
+        { name = "nvim_lsp" },
+        { name = "luasnip" },
+        { name = "buffer" },
+        { name = "nvim_lua" },
+        { name = "path" },
+    },
 
-cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done({
-    map_char = {
-        tex = ''
-    }
-}))
+    window = {
+        completion = {
+            side_padding = 1,
+            border = border("CmpBorder"),
+            scrollbar = false,
+        },
+        documentation = {
+            border = border("CmpDocBorder"),
+        },
+    },
+}
+
+cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())

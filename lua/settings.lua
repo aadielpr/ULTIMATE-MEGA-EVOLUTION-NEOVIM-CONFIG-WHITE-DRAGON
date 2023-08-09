@@ -1,46 +1,39 @@
 local opt = vim.opt
-local cmd = vim.cmd
 
-opt.splitbelow = true
-opt.splitright = true
+opt.cursorline = true
 opt.showmode = false
-opt.mouse = 'a'
-opt.termguicolors = true
-opt.hidden = true
-opt.updatetime = 300
+opt.fillchars = { eob = " " }
+opt.ignorecase = true
+opt.smartcase = true
+opt.mouse = "a"
+opt.belloff = "all"
 opt.history = 50
-opt.lazyredraw = true
-opt.synmaxcol = 150
 opt.backup = false
 opt.writebackup = false
-opt.number = true
-opt.cursorline = true
-opt.belloff = 'all'
-opt.pumheight = 10
-opt.signcolumn = 'yes'
-opt.tagrelative = false
-opt.fileformat = 'unix'
+opt.fileformat = "unix"
 opt.wrap = false
-opt.smartindent = true
-opt.autoindent = true
+opt.iskeyword:append("-") -- consider string-string as whole word
+opt.updatetime = 250
+
+-- Indenting
 opt.expandtab = true
-opt.scrolloff = 8
-opt.sidescrolloff = 8
+opt.smarttab = true
 opt.shiftwidth = 4
+opt.smartindent = true
+opt.tabstop = 4
 opt.softtabstop = 4
+opt.autoindent = true
+opt.breakindent = true
+
+-- Numbers
+opt.number = true
+opt.numberwidth = 2
 opt.relativenumber = true
-opt.list = true
-opt.listchars:append('tab:> ')
+opt.ruler = false
 
---opt.colorcolumn = '100'
-
---vim.cmd 'colorscheme minimal-base16'
-
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "go",
-  callback = function()
-      opt.shiftwidth = 8
-      opt.softtabstop = 8
-      opt.expandtab = false
-    end
-})
+opt.signcolumn = "yes"
+opt.splitbelow = true
+opt.splitright = true
+opt.termguicolors = true
+opt.timeoutlen = 400
+opt.undofile = true

@@ -1,4 +1,12 @@
-require('gitsigns').setup {
+require("gitsigns").setup {
+    signs = {
+        add = { text = "│" },
+        change = { text = "│" },
+        delete = { text = "󰍵" },
+        topdelete = { text = "‾" },
+        changedelete = { text = "~" },
+        untracked = { text = "│" },
+    },
     on_attach = function(bufnr)
         local gs = package.loaded.gitsigns
 
@@ -9,28 +17,28 @@ require('gitsigns').setup {
         end
 
         -- Navigation
-        map('n', ']c', function()
+        map("n", "]c", function()
             if vim.wo.diff then
-                return ']c'
+                return "]c"
             end
             vim.schedule(function()
                 gs.next_hunk()
             end)
-            return '<Ignore>'
+            return "<Ignore>"
         end, {
-            expr = true
+            expr = true,
         })
 
-        map('n', '[c', function()
+        map("n", "[c", function()
             if vim.wo.diff then
-                return '[c'
+                return "[c"
             end
             vim.schedule(function()
                 gs.prev_hunk()
             end)
-            return '<Ignore>'
+            return "<Ignore>"
         end, {
-            expr = true
+            expr = true,
         })
 
         -- Actions
@@ -39,20 +47,20 @@ require('gitsigns').setup {
         -- map('n', '<leader>hS', gs.stage_buffer)
         -- map('n', '<leader>hu', gs.undo_stage_hunk)
         -- map('n', '<leader>hR', gs.reset_buffer)
-        map('n', 'gp', gs.preview_hunk)
-        map('n', 'gb', function()
+        map("n", "gp", gs.preview_hunk)
+        map("n", "gb", function()
             gs.blame_line {
-                full = true
+                full = true,
             }
         end)
-        map('n', 'gtb', gs.toggle_current_line_blame)
-        map('n', 'ghd', gs.diffthis)
-        map('n', 'ghD', function()
-            gs.diffthis('~')
+        map("n", "gtb", gs.toggle_current_line_blame)
+        map("n", "ghd", gs.diffthis)
+        map("n", "ghD", function()
+            gs.diffthis("~")
         end)
         -- map('n', '<leader>td', gs.toggle_deleted)
 
         -- Text object
-        map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
-    end
+        map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
+    end,
 }

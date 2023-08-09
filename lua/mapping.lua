@@ -1,27 +1,24 @@
-local function map(mod, lhs, rhs, opt)
-  return vim.api.nvim_set_keymap(mod, lhs, rhs, opt or {})
-end
+local setKeymap = require("plugins.utils.keymap").setKeyMap
 
 local opt = { noremap = true, silent = true }
 -- Split window
-map('n', 'ss', '<Cmd>split<CR><C-w>w', { noremap = true })
-map('n', 'sv', '<Cmd>vsplit<CR><C-w>w', { noremap = true })
+setKeymap("n", "ss", "<Cmd>split<CR><C-w>w", opt)
+setKeymap("n", "sv", "<Cmd>vsplit<CR><C-w>w", opt)
 
-map('n', '<C-j>', '<C-w>j')
-map('n', '<C-k>', '<C-w>k')
-map('n', '<C-l>', '<C-w>l')
-map('n', '<C-h>', '<C-w>h')
+setKeymap("n", "<C-j>", "<C-w>j")
+setKeymap("n", "<C-k>", "<C-w>k")
+setKeymap("n", "<C-l>", "<C-w>l")
+setKeymap("n", "<C-h>", "<C-w>h")
 
-map('n', 'Q', '')
-map('n', '<F1>', '')
-map('i', '<F1>', '')
-map('n', '<leader>v', ':noh<CR>', { silent = true })
+setKeymap("n", "Q", "")
+setKeymap("n", "<F1>", "")
+setKeymap("i", "<F1>", "")
+setKeymap("n", "<leader>v", ":noh<CR>", opt)
 
 -- Copy, Cut, Paste
-map('', '<leader>c', '"+y', opt)
-map('', '<leader>x', '"+d', opt)
-map('', '<leader>p', '"+p', opt)
+setKeymap("", "<leader>c", '"+y', opt)
+setKeymap("", "<leader>x", '"+d', opt)
+setKeymap("", "<leader>p", '"+p', opt)
 
-map('n', 'sj', ':m+<CR>', opt)
-map('n', 'sk', ':m-2<CR>', opt)
-
+setKeymap("n", "sj", ":m+<CR>", opt)
+setKeymap("n", "sk", ":m-2<CR>", opt)
