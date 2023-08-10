@@ -1,4 +1,5 @@
 local setKeymap = require("plugins.utils.keymap").setKeyMap
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 local M = {}
 
@@ -12,10 +13,10 @@ M.onAttach = function(client, bufnr)
     setKeymap("n", "gd", vim.lsp.buf.definition, opts)
     setKeymap("n", "gi", vim.lsp.buf.implementation, opts)
     setKeymap("n", "K", vim.lsp.buf.hover, opts)
-    setKeymap("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+    setKeymap("n", "ca", vim.lsp.buf.code_action, opts)
     --[[ setKeymap("n", "<leader>rn", vim.lsp.buf.rename, opts) ]]
-    setKeymap("n", "<leader>fm", function()
-        vim.lsp.buf.format({ async = true })
+    setKeymap("n", "fm", function()
+        vim.lsp.buf.format { async = true }
     end, opts)
 
     -- diagnostic
@@ -25,7 +26,7 @@ M.onAttach = function(client, bufnr)
 end
 
 -- credit: github.com/NvChad/NvChad
-M.capabilities = vim.lsp.protocol.make_client_capabilities()
+M.capabilities = capabilities
 M.capabilities.textDocument.completion.completionItem = {
     documentationFormat = { "markdown", "plaintext" },
     snippetSupport = true,

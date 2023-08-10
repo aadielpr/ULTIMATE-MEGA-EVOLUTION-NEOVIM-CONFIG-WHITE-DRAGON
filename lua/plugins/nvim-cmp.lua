@@ -34,10 +34,10 @@ cmp.setup {
         end,
     },
     mapping = {
-        ["<Esc>"] = cmp.mapping.abort(),
+        ["<Esc>"] = cmp.mapping.close(),
         ["<C-Space>"] = cmp.mapping.complete(),
         ["<C-y>"] = cmp.config.disable,
-        ["<C-e>"] = cmp.mapping.close(),
+        ["<C-e>"] = cmp.mapping.abort(),
         ["<CR>"] = cmp.mapping.confirm {
             behavior = cmp.ConfirmBehavior.Replace,
             select = true,
@@ -71,16 +71,10 @@ cmp.setup {
         { name = "nvim_lsp" },
         { name = "luasnip" },
         { name = "buffer" },
-        { name = "nvim_lua" },
         { name = "path" },
     },
 
     window = {
-        completion = {
-            side_padding = 1,
-            border = border("CmpBorder"),
-            scrollbar = false,
-        },
         documentation = {
             border = border("CmpDocBorder"),
         },

@@ -13,7 +13,7 @@ opt.writebackup = false
 opt.fileformat = "unix"
 opt.wrap = false
 opt.iskeyword:append("-") -- consider string-string as whole word
-opt.updatetime = 250
+opt.updatetime = 200
 
 -- Indenting
 opt.expandtab = true

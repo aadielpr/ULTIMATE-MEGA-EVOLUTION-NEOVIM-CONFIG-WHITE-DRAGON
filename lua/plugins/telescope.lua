@@ -49,8 +49,8 @@ telescope.setup {
     },
 }
 
-setKeymap("n", "<leader>ff", builtin.find_files)
-setKeymap("n", "<leader>fb", builtin.current_buffer_fuzzy_find)
-setKeymap("n", "<leader>fg", builtin.live_grep)
+setKeymap("n", "ff", builtin.find_files)
+setKeymap("n", "fb", builtin.current_buffer_fuzzy_find)
+setKeymap("n", "fg", builtin.live_grep)
 
 telescope.load_extension("ui-select")
