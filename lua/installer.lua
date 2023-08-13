@@ -77,7 +77,6 @@ require("packer").startup(function(use)
         "nvim-telescope/telescope.nvim",
         requires = { { "nvim-lua/plenary.nvim" } },
     }
-    use { "nvim-telescope/telescope-ui-select.nvim" }
 
     -- icon & stuff
     use { "onsails/lspkind-nvim" }
@@ -88,6 +87,9 @@ require("packer").startup(function(use)
         "lewis6991/gitsigns.nvim",
         requires = { "nvim-lua/plenary.nvim" },
     }
+
+    -- harpoon
+    use { "theprimeagen/harpoon" }
 
     if packer_bootstrap then
         require("packer").sync()

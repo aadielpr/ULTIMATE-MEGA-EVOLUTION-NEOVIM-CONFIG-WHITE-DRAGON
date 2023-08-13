@@ -5,10 +5,11 @@ require("installer")
 require("settings")
 require("mapping")
 
-require("plugins.theme.ayu")
+require("plugins.color")
 
 require("plugins.lsp")
 
+require("plugins.harpoon")
 require("plugins.rename")
 require("plugins.autopairs")
 require("plugins.comment")

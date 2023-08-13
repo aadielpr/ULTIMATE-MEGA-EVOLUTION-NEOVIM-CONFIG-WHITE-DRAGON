@@ -23,8 +23,5 @@ setKeymap("", "<leader>p", '"+p', opt)
 setKeymap("n", "sj", ":m+<CR>", opt)
 setKeymap("n", "sk", ":m-2<CR>", opt)
 
--- select all
-setKeymap('n', '<C-a>', 'gg<S-v>G', opt)
-
 -- go to normal mode when pressing jk
 setKeymap('i', 'jk', '<Esc>', opt)

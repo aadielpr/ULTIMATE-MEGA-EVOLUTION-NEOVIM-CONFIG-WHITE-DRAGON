@@ -1,4 +1,5 @@
 local opt = vim.opt
+vim.g.mapleader = " "
 
 opt.cursorline = true
 opt.showmode = false

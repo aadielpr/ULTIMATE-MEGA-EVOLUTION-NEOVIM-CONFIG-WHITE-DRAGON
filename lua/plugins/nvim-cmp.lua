@@ -16,9 +16,6 @@ local function border(hl_name)
 end
 
 cmp.setup {
-    completion = {
-        completeopt = "menu,menuone",
-    },
     formatting = {
         fields = { "abbr", "kind", "menu" },
         format = function(_, item)
@@ -73,10 +70,11 @@ cmp.setup {
         { name = "buffer" },
         { name = "path" },
     },
-
     window = {
         documentation = {
             border = border("CmpDocBorder"),
+            max_height = 15,
+            max_width = 60,
         },
     },
 }
