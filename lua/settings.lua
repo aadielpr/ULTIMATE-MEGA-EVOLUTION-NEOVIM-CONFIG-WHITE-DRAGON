@@ -1,9 +1,6 @@
 local opt = vim.opt
-vim.g.mapleader = " "
 
 opt.cursorline = true
-opt.showmode = false
-opt.fillchars = { eob = " " }
 opt.ignorecase = true
 opt.smartcase = true
 opt.mouse = "a"
@@ -11,20 +8,21 @@ opt.belloff = "all"
 opt.history = 50
 opt.backup = false
 opt.writebackup = false
+opt.swapfile = false
 opt.fileformat = "unix"
 opt.wrap = false
 opt.iskeyword:append("-") -- consider string-string as whole word
 opt.updatetime = 200
 
 -- Indenting
-opt.expandtab = true
-opt.smarttab = true
 opt.shiftwidth = 4
-opt.smartindent = true
 opt.tabstop = 4
 opt.softtabstop = 4
 opt.autoindent = true
 opt.breakindent = true
+opt.smartindent = true
+opt.expandtab = true
+opt.smarttab = true
 
 -- Numbers
 opt.number = true

@@ -24,4 +24,4 @@ setKeymap("n", "sj", ":m+<CR>", opt)
 setKeymap("n", "sk", ":m-2<CR>", opt)
 
 -- go to normal mode when pressing jk
-setKeymap('i', 'jk', '<Esc>', opt)
+setKeymap('i', '<C-c>', '<Esc>', opt)

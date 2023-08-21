@@ -10,7 +10,6 @@ require("plugins.color")
 require("plugins.lsp")
 
 require("plugins.harpoon")
-require("plugins.rename")
 require("plugins.autopairs")
 require("plugins.comment")
 require("plugins.nvim-icons")

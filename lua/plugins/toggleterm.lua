@@ -8,11 +8,7 @@ require("toggleterm").setup {
     hide_numbers = true,
     float_opts = {
         border = "curved",
-        winblend = 0,
-        highlights = {
-            border = "Normal",
-            background = "Normal",
-        },
+        --[[ winblend = 0, ]]
     },
 }
 

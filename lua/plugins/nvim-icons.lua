@@ -1,3 +1,1 @@
-require("nvim-web-devicons").setup {
-    override = require("plugins.utils.icons").devicons,
-}
+require("nvim-web-devicons").setup {}

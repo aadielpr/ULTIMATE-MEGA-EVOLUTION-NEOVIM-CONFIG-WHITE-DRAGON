@@ -23,14 +23,13 @@ require("packer").startup(function(use)
     use { "wbthomason/packer.nvim" }
 
     -- colorscheme
-    use { "Shatur/neovim-ayu" }
+    use { "rose-pine/neovim", as = "rose-pine" }
 
     -- treesitter
     use {
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
     }
-    use { "nvim-treesitter/playground" }
     use { "JoosepAlviste/nvim-ts-context-commentstring" }
 
     -- completion
@@ -49,9 +48,6 @@ require("packer").startup(function(use)
     use { "jose-elias-alvarez/null-ls.nvim" }
     use { "williamboman/mason-lspconfig.nvim" }
     use { "neovim/nvim-lspconfig" }
-
-    -- rename
-    use { "smjonas/inc-rename.nvim" }
 
     -- comment plugin
     use { "numToStr/Comment.nvim" }
@@ -82,7 +78,8 @@ require("packer").startup(function(use)
     use { "onsails/lspkind-nvim" }
     use { "kyazdani42/nvim-web-devicons" }
 
-    -- git sign
+    -- git stuff
+    use { "tpope/vim-fugitive" }
     use {
         "lewis6991/gitsigns.nvim",
         requires = { "nvim-lua/plenary.nvim" },

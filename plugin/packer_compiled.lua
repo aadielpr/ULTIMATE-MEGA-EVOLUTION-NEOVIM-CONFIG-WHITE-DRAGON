@@ -109,11 +109,6 @@ _G.packer_plugins = {
     path = "/Users/adielpratama/.local/share/nvim/site/pack/packer/start/harpoon",
     url = "https://github.com/theprimeagen/harpoon"
   },
-  ["inc-rename.nvim"] = {
-    loaded = true,
-    path = "/Users/adielpratama/.local/share/nvim/site/pack/packer/start/inc-rename.nvim",
-    url = "https://github.com/smjonas/inc-rename.nvim"
-  },
   ["lspkind-nvim"] = {
     loaded = true,
     path = "/Users/adielpratama/.local/share/nvim/site/pack/packer/start/lspkind-nvim",
@@ -133,11 +128,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/adielpratama/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
-  },
-  ["neovim-ayu"] = {
-    loaded = true,
-    path = "/Users/adielpratama/.local/share/nvim/site/pack/packer/start/neovim-ayu",
-    url = "https://github.com/Shatur/neovim-ayu"
   },
   ["null-ls.nvim"] = {
     loaded = true,
@@ -189,15 +179,15 @@ _G.packer_plugins = {
     path = "/Users/adielpratama/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
-  playground = {
-    loaded = true,
-    path = "/Users/adielpratama/.local/share/nvim/site/pack/packer/start/playground",
-    url = "https://github.com/nvim-treesitter/playground"
-  },
   ["plenary.nvim"] = {
     loaded = true,
     path = "/Users/adielpratama/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
+  },
+  ["rose-pine"] = {
+    loaded = true,
+    path = "/Users/adielpratama/.local/share/nvim/site/pack/packer/start/rose-pine",
+    url = "https://github.com/rose-pine/neovim"
   },
   ["telescope.nvim"] = {
     loaded = true,
@@ -208,6 +198,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/adielpratama/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
+  },
+  ["vim-fugitive"] = {
+    loaded = true,
+    path = "/Users/adielpratama/.local/share/nvim/site/pack/packer/start/vim-fugitive",
+    url = "https://github.com/tpope/vim-fugitive"
   }
 }
 

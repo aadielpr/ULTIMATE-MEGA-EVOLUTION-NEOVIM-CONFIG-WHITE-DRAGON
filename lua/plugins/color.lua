@@ -1,8 +1,6 @@
-local ayu = require("ayu")
+require("rose-pine").setup {
+    disable_background = true,
+    disable_italics = true,
+}
 
-ayu.setup({
-    mirage = true,
-    overrides = {},
-})
-
-ayu.colorscheme()
+vim.cmd("colorscheme rose-pine")

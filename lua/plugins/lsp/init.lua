@@ -15,8 +15,8 @@ local function on_attach(client, bufnr)
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
     vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
     vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-    vim.keymap.set("n", "ca", vim.lsp.buf.code_action, opts)
-    --[[ vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts) ]]
+    vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+    vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
     vim.keymap.set("n", "fm", function()
         vim.lsp.buf.format { async = true }
     end, opts)
@@ -73,9 +73,16 @@ lsp.gopls.setup {
         gopls = {
             completeUnimported = true,
             usePlaceholders = true,
-            analyses = {
-                unusedparams = true,
-            },
+            -- analyses = {
+            --     nilness = true,
+            --     unusedparams = false,
+            --     unusedwrite = true,
+            --     useany = true,
+            -- },
         },
     },
+}
+
+lsp.dockerls.setup {
+    on_attach = on_attach,
 }
