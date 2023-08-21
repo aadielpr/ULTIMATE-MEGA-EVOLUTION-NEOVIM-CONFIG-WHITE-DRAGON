@@ -13,6 +13,7 @@ opt.fileformat = "unix"
 opt.wrap = false
 opt.iskeyword:append("-") -- consider string-string as whole word
 opt.updatetime = 200
+opt.guicursor="n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250,sm:block-blinkwait175-blinkoff150-blinkon175"
 
 -- Indenting
 opt.shiftwidth = 4
