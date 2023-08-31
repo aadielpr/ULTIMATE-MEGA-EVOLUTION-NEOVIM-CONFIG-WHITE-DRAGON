@@ -2,11 +2,12 @@ local error = "DiagnosticSignError"
 local warn = "DiagnosticSignWarn"
 local info = "DiagnosticSignInfo"
 local hint = "DiagnosticSignHint"
+local icons = require("plugins.utils.icons")
 
-vim.fn.sign_define(error, { text = "󰅙", texthl = error })
-vim.fn.sign_define(warn, { text = "", texthl = warn })
-vim.fn.sign_define(info, { text = "󰋼", texthl = info })
-vim.fn.sign_define(hint, { text = "", texthl = hint })
+vim.fn.sign_define(error, { text = icons.diagnostic.Error, texthl = error })
+vim.fn.sign_define(warn, { text = icons.diagnostic.Warning, texthl = warn })
+vim.fn.sign_define(info, { text = icons.diagnostic.Information, texthl = info })
+vim.fn.sign_define(hint, { text = icons.diagnostic.Hint, texthl = hint })
 
 vim.diagnostic.config {
     virtual_text = {

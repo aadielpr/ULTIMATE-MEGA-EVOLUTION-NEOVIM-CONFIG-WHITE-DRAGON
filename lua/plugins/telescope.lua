@@ -14,9 +14,6 @@ telescope.setup {
         },
         initial_mode = "insert",
         file_ignore_patterns = { "node_modules", ".git", "dist" },
-        path_display = {
-            tail = true
-        }
     },
 }
 

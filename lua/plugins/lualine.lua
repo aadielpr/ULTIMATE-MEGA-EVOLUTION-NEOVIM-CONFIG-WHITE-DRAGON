@@ -7,6 +7,24 @@ local spaces = function()
     return "spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
 end
 
+local diagnostics = {
+    "diagnostics",
+    sources = { "nvim_diagnostic" },
+    sections = { "error", "warn" },
+    symbols = {
+        error = " ",
+        warn = " ",
+    },
+    update_in_insert = false,
+    always_visible = true,
+    diagnostics_color = {
+        error = "DiagnosticSignError", -- Changes diagnostics' error color.
+        warn = "DiagnosticSignWarn", -- Changes diagnostics' warn color.
+        info = "DiagnosticSignInfo", -- Changes diagnostics' info color.
+        hint = "DiagnosticSignHint", -- Changes diagnostics' hint color.
+    },
+}
+
 lualine.setup {
     options = {
         icons_enabled = false,
@@ -24,15 +42,15 @@ lualine.setup {
     sections = {
         lualine_a = { "mode" },
         lualine_b = { "branch" },
-        lualine_c = { "filename" },
-        lualine_x = { spaces },
+        lualine_c = { { "filename", path = 2 } },
+        lualine_x = { diagnostics, spaces },
         lualine_y = { "filetype" },
         lualine_z = { "location" },
     },
     inactive_sections = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = { "filename" },
+        lualine_c = { { "filename", path = 2 } },
         lualine_x = { "location" },
         lualine_y = {},
         lualine_z = {},

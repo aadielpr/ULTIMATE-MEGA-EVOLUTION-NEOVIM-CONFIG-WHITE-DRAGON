@@ -41,4 +41,12 @@ M.lspkind = {
     Copilot = "",
 }
 
+M.diagnostic = {
+    Error = "",
+    Warning = "",
+    Information = "",
+    Question = "",
+    Hint = "󰌵",
+}
+
 return M

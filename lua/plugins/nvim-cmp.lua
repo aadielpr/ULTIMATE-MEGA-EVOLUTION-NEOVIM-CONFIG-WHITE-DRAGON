@@ -1,6 +1,7 @@
 local cmp = require("cmp")
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 local luasnip = require("luasnip")
+local compare = require("cmp.config.compare")
 
 local function border(hl_name)
     return {
@@ -15,6 +16,17 @@ local function border(hl_name)
     }
 end
 
+compare.lsp_scores = function(entry1, entry2)
+    local diff
+    if entry1.completion_item.score and entry2.completion_item.score then
+        diff = (entry2.completion_item.score * entry2.score)
+            - (entry1.completion_item.score * entry1.score)
+    else
+        diff = entry2.score - entry1.score
+    end
+    return (diff < 0)
+end
+
 cmp.setup {
     formatting = {
         fields = { "abbr", "kind", "menu" },
@@ -25,9 +37,24 @@ cmp.setup {
             return item
         end,
     },
+    sorting = {
+        priority_weight = 2,
+        comparator = {
+            compare.offset, -- Items closer to cursor will have lower priority
+            compare.exact,
+            -- compare.scopes,
+            compare.lsp_scores,
+            compare.sort_text,
+            compare.score,
+            compare.recently_used,
+            compare.kind,
+            compare.length,
+            compare.order,
+        },
+    },
     snippet = {
         expand = function(args)
-            require("luasnip").lsp_expand(args.body)
+            luasnip.lsp_expand(args.body)
         end,
     },
     mapping = {
@@ -42,15 +69,12 @@ cmp.setup {
         ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
-            elseif luasnip.expand_or_jumpable() then
+            elseif luasnip.expand_or_locally_jumpable() then
                 luasnip.expand_or_jump()
             else
                 fallback()
             end
-        end, {
-            "i",
-            "s",
-        }),
+        end, { "i", "s" }),
         ["<S-Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_prev_item()
@@ -59,22 +83,23 @@ cmp.setup {
             else
                 fallback()
             end
-        end, {
-            "i",
-            "s",
-        }),
+        end, { "i", "s" }),
     },
     sources = {
-        { name = "nvim_lsp" },
+        { name = "nvim_lsp", max_item_count = 350 },
+        { name = "nvim_lua" },
         { name = "luasnip" },
-        { name = "buffer" },
         { name = "path" },
+        { name = "buffer" },
     },
     window = {
+        completion = {
+            winhighlight = "Normal:Pmenu,CursorLine:PmenuSel,Search:PmenuSel",
+            scrollbar = false,
+        },
         documentation = {
             border = border("CmpDocBorder"),
-            max_height = 15,
-            max_width = 60,
+            winhighlight = "Normal:CmpDoc",
         },
     },
 }

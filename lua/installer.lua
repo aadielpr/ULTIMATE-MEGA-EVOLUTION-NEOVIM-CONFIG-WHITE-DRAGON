@@ -37,6 +37,7 @@ require("packer").startup(function(use)
         "hrsh7th/nvim-cmp",
         requires = {
             "hrsh7th/cmp-nvim-lsp",
+            "hrsh7th/cmp-nvim-lua",
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-path",
             "L3MON4D3/LuaSnip",
@@ -75,7 +76,6 @@ require("packer").startup(function(use)
     }
 
     -- icon & stuff
-    use { "onsails/lspkind-nvim" }
     use { "kyazdani42/nvim-web-devicons" }
 
     -- git stuff
@@ -85,8 +85,14 @@ require("packer").startup(function(use)
         requires = { "nvim-lua/plenary.nvim" },
     }
 
+    -- zenmode
+    use { "folke/zen-mode.nvim" }
+
     -- harpoon
     use { "theprimeagen/harpoon" }
+
+    -- scrollview
+    use("dstein64/nvim-scrollview")
 
     if packer_bootstrap then
         require("packer").sync()
