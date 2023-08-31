@@ -114,6 +114,11 @@ _G.packer_plugins = {
     path = "/Users/adielpratama/.local/share/nvim/site/pack/packer/start/harpoon",
     url = "https://github.com/theprimeagen/harpoon"
   },
+  ["lsp_signature.nvim"] = {
+    loaded = true,
+    path = "/Users/adielpratama/.local/share/nvim/site/pack/packer/start/lsp_signature.nvim",
+    url = "https://github.com/ray-x/lsp_signature.nvim"
+  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/Users/adielpratama/.local/share/nvim/site/pack/packer/start/lualine.nvim",

@@ -20,6 +20,7 @@ local function on_attach(client, bufnr)
     vim.keymap.set("n", "fm", function()
         vim.lsp.buf.format { async = true }
     end, opts)
+    vim.keymap.set("n", "H", vim.lsp.buf.signature_help, opts)
 
     -- diagnostic
     vim.keymap.set("n", "E", vim.diagnostic.open_float, opts)
@@ -85,4 +86,8 @@ lsp.gopls.setup {
 
 lsp.dockerls.setup {
     on_attach = on_attach,
+}
+
+require("lsp_signature").setup {
+    hint_enable = false, -- virtual hint enable
 }

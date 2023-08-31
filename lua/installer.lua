@@ -43,6 +43,7 @@ require("packer").startup(function(use)
             "L3MON4D3/LuaSnip",
         },
     }
+    use { "ray-x/lsp_signature.nvim" }
 
     -- LSP stuff
     use { "williamboman/mason.nvim" }
