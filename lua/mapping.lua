@@ -23,3 +23,4 @@ vim.keymap.set("n", "sk", ":m-2<CR>")
 -- go to normal mode when pressing jk
 vim.keymap.set("i", "<C-c>", "<Esc>")
 
+vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")

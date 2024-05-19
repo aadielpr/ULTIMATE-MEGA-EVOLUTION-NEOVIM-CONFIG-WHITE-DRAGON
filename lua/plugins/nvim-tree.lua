@@ -2,7 +2,7 @@ require("nvim-web-devicons").setup {}
 require("nvim-tree").setup {
     hijack_netrw = true,
     diagnostics = {
-        enable = true,
+        enable = false,
         severity = {
             min = vim.diagnostic.severity.ERROR,
         },
