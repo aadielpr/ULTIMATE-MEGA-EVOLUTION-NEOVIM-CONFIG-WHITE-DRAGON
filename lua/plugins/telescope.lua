@@ -2,8 +2,6 @@ local telescope = require("telescope")
 local actions = require("telescope.actions")
 local builtin = require("telescope.builtin")
 
-local setKeymap = require("plugins.utils.keymap").setKeyMap
-
 telescope.setup {
     defaults = {
         mappings = {
@@ -19,6 +17,6 @@ telescope.setup {
 
 local opt = { noremap = true, silent = true }
 
-setKeymap("n", "ff", builtin.find_files, opt)
-setKeymap("n", "fb", builtin.current_buffer_fuzzy_find, opt)
-setKeymap("n", "fg", builtin.live_grep, opt)
+vim.keymap.set("n", "ff", builtin.find_files, opt)
+vim.keymap.set("n", "fb", builtin.current_buffer_fuzzy_find, opt)
+vim.keymap.set("n", "fg", builtin.live_grep, opt)

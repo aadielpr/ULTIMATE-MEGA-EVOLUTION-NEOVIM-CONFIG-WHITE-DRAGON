@@ -1,27 +1,25 @@
-local setKeymap = require("plugins.utils.keymap").setKeyMap
-
-local opt = { noremap = true, silent = true }
 -- Split window
-setKeymap("n", "ss", "<Cmd>split<CR><C-w>w", opt)
-setKeymap("n", "sv", "<Cmd>vsplit<CR><C-w>w", opt)
+vim.keymap.set("n", "ss", "<Cmd>split<CR><C-w>w")
+vim.keymap.set("n", "sv", "<Cmd>vsplit<CR><C-w>w")
 
-setKeymap("n", "<C-j>", "<C-w>j")
-setKeymap("n", "<C-k>", "<C-w>k")
-setKeymap("n", "<C-l>", "<C-w>l")
-setKeymap("n", "<C-h>", "<C-w>h")
+vim.keymap.set("n", "<C-j>", "<C-w>j")
+vim.keymap.set("n", "<C-k>", "<C-w>k")
+vim.keymap.set("n", "<C-l>", "<C-w>l")
+vim.keymap.set("n", "<C-h>", "<C-w>h")
 
-setKeymap("n", "Q", "")
-setKeymap("n", "<F1>", "")
-setKeymap("i", "<F1>", "")
-setKeymap("n", "<leader>v", ":noh<CR>", opt)
+vim.keymap.set("n", "Q", "")
+vim.keymap.set("n", "<F1>", "")
+vim.keymap.set("i", "<F1>", "")
+vim.keymap.set("n", "<leader>v", ":noh<CR>")
 
 -- Copy, Cut, Paste
-setKeymap("", "<leader>c", '"+y', opt)
-setKeymap("", "<leader>x", '"+d', opt)
-setKeymap("", "<leader>p", '"+p', opt)
+vim.keymap.set("", "<leader>c", '"+y')
+vim.keymap.set("", "<leader>x", '"+d')
+vim.keymap.set("", "<leader>p", '"+p')
 
-setKeymap("n", "sj", ":m+<CR>", opt)
-setKeymap("n", "sk", ":m-2<CR>", opt)
+vim.keymap.set("n", "sj", ":m+<CR>")
+vim.keymap.set("n", "sk", ":m-2<CR>")
 
 -- go to normal mode when pressing jk
-setKeymap('i', '<C-c>', '<Esc>', opt)
+vim.keymap.set("i", "<C-c>", "<Esc>")
+

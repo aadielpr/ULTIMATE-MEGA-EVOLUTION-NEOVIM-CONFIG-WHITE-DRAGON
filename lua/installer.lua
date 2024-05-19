@@ -25,6 +25,14 @@ require("packer").startup(function(use)
     -- colorscheme
     use { "rose-pine/neovim", as = "rose-pine" }
 
+    -- find & replace
+    use {
+        "VonHeikemen/searchbox.nvim",
+        requires = {
+            { "MunifTanjim/nui.nvim" },
+        },
+    }
+
     -- treesitter
     use {
         "nvim-treesitter/nvim-treesitter",
@@ -47,25 +55,20 @@ require("packer").startup(function(use)
 
     -- LSP stuff
     use { "williamboman/mason.nvim" }
-    use { "jose-elias-alvarez/null-ls.nvim" }
     use { "williamboman/mason-lspconfig.nvim" }
     use { "neovim/nvim-lspconfig" }
+    use {
+        "creativenull/efmls-configs-nvim",
+        tag = "v1.*", -- tag is optional, but recommended
+        requires = { "neovim/nvim-lspconfig" },
+    }
 
     -- comment plugin
     use { "numToStr/Comment.nvim" }
 
-    -- terminal
-    use {
-        "akinsho/toggleterm.nvim",
-        tag = "*",
-    }
-
     -- bracket stuff
     use { "windwp/nvim-autopairs" }
     use { "windwp/nvim-ts-autotag" }
-
-    -- lualine
-    use { "nvim-lualine/lualine.nvim" }
 
     -- nvim tree
     use { "kyazdani42/nvim-tree.lua" }
@@ -85,15 +88,6 @@ require("packer").startup(function(use)
         "lewis6991/gitsigns.nvim",
         requires = { "nvim-lua/plenary.nvim" },
     }
-
-    -- zenmode
-    use { "folke/zen-mode.nvim" }
-
-    -- harpoon
-    use { "theprimeagen/harpoon" }
-
-    -- scrollview
-    use("dstein64/nvim-scrollview")
 
     if packer_bootstrap then
         require("packer").sync()
