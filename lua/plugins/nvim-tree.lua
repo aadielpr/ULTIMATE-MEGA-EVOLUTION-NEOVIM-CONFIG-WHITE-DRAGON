@@ -25,6 +25,10 @@ require("nvim-tree").setup {
             min = 40,
         },
     },
+    hijack_directories = {
+        enable = true,
+        auto_open = false,
+    },
 }
 
 vim.keymap.set("n", "<C-p>", function()

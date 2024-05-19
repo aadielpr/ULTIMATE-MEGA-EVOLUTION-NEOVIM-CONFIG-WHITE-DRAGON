@@ -20,7 +20,7 @@ vim.keymap.set("", "<leader>p", '"+p')
 vim.keymap.set("n", "sj", ":m+<CR>")
 vim.keymap.set("n", "sk", ":m-2<CR>")
 
--- go to normal mode when pressing jk
+-- go to normal mode when pressing CTRL+C
 vim.keymap.set("i", "<C-c>", "<Esc>")
 
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
