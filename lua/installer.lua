@@ -59,6 +59,10 @@ require("packer").startup(function(use)
         tag = "v1.*", -- tag is optional, but recommended
         requires = { "neovim/nvim-lspconfig" },
     }
+    use {
+        "folke/trouble.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+    }
 
     -- comment plugin
     use { "numToStr/Comment.nvim" }
