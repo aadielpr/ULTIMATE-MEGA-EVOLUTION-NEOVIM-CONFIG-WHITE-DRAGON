@@ -72,7 +72,7 @@ vim.api.nvim_create_autocmd({ "VimResized" }, {
     end,
 })
 
-vim.keymap.set("n", "<C-\\>", function()
+vim.keymap.set("n", "<C-p>", function()
     require("nvim-tree.api").tree.toggle { --[[ current_window = true ]]
     }
 end, {
