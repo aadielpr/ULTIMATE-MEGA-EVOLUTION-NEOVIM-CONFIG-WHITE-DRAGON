@@ -129,11 +129,6 @@ _G.packer_plugins = {
     path = "/Users/adielpratama/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
-  ["nui.nvim"] = {
-    loaded = true,
-    path = "/Users/adielpratama/.local/share/nvim/site/pack/packer/start/nui.nvim",
-    url = "https://github.com/MunifTanjim/nui.nvim"
-  },
   ["nvim-autopairs"] = {
     loaded = true,
     path = "/Users/adielpratama/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
@@ -189,15 +184,15 @@ _G.packer_plugins = {
     path = "/Users/adielpratama/.local/share/nvim/site/pack/packer/start/rose-pine",
     url = "https://github.com/rose-pine/neovim"
   },
-  ["searchbox.nvim"] = {
-    loaded = true,
-    path = "/Users/adielpratama/.local/share/nvim/site/pack/packer/start/searchbox.nvim",
-    url = "https://github.com/VonHeikemen/searchbox.nvim"
-  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/Users/adielpratama/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  undotree = {
+    loaded = true,
+    path = "/Users/adielpratama/.local/share/nvim/site/pack/packer/start/undotree",
+    url = "https://github.com/mbbill/undotree"
   },
   ["vim-fugitive"] = {
     loaded = true,

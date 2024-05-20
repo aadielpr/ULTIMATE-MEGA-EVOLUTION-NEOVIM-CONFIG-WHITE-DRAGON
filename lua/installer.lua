@@ -25,12 +25,9 @@ require("packer").startup(function(use)
     -- colorscheme
     use { "rose-pine/neovim", as = "rose-pine" }
 
-    -- find & replace
+    -- undotree
     use {
-        "VonHeikemen/searchbox.nvim",
-        requires = {
-            { "MunifTanjim/nui.nvim" },
-        },
+        "mbbill/undotree",
     }
 
     -- treesitter

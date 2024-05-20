@@ -140,8 +140,6 @@ cmp.setup {
     },
 }
 
-cmp.event:on("confirm_done", require("nvim-autopairs.completion.cmp").on_confirm_done())
-
 vim.diagnostic.config {
     -- update_in_insert = true,
     float = {

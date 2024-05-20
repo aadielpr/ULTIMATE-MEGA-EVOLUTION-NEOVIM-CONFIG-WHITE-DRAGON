@@ -5,13 +5,18 @@ require("nvim-web-devicons").setup {}
 require("nvim-tree").setup {
     hijack_netrw = true,
     diagnostics = {
-        enable = false,
+        enable = true,
         severity = {
             min = vim.diagnostic.severity.ERROR,
         },
     },
+    renderer = {
+        icons = {
+            git_placement = "after",
+        },
+    },
     git = {
-        enable = false,
+        enable = true,
     },
     actions = {
         open_file = {
@@ -23,13 +28,8 @@ require("nvim-tree").setup {
         custom = { "node_modules", ".bin", ".DS_Store", ".git" },
     },
     view = {
-        side = "right",
-        width = function()
-            return math.floor(vim.opt.columns:get() * WIDTH_RATIO)
-        end,
         float = {
             enable = true,
-            quit_on_focus_loss = true,
             open_win_config = function()
                 local screen_w = vim.opt.columns:get()
                 local screen_h = vim.opt.lines:get() - vim.opt.cmdheight:get()
@@ -49,14 +49,30 @@ require("nvim-tree").setup {
                 }
             end,
         },
-    },
-    hijack_directories = {
-        enable = true,
-        auto_open = false,
+        width = function()
+            return math.floor(vim.opt.columns:get() * WIDTH_RATIO)
+        end,
     },
 }
 
-vim.keymap.set("n", "<C-p>", function()
+local tree_api = require("nvim-tree")
+local tree_view = require("nvim-tree.view")
+
+vim.api.nvim_create_augroup("NvimTreeResize", {
+    clear = true,
+})
+
+vim.api.nvim_create_autocmd({ "VimResized" }, {
+    group = "NvimTreeResize",
+    callback = function()
+        if tree_view.is_visible() then
+            tree_view.close()
+            tree_api.open()
+        end
+    end,
+})
+
+vim.keymap.set("n", "<C-\\>", function()
     require("nvim-tree.api").tree.toggle { --[[ current_window = true ]]
     }
 end, {

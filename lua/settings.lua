@@ -11,6 +11,7 @@ opt.swapfile = false
 opt.fileformat = "unix"
 opt.wrap = false
 opt.updatetime = 50
+opt.scrolloff = 15
 
 -- Indenting
 --[[ opt.shiftwidth = 2 ]]
