@@ -75,6 +75,7 @@ require("mason-lspconfig").setup {
             local languages = {
                 typescript = { prettier },
                 typescriptreact = { prettier },
+                json = { prettier },
                 javascript = { prettier },
                 go = { gofumpt, goimports, golines },
                 lua = { stylua },
