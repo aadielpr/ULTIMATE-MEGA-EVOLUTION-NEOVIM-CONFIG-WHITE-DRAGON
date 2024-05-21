@@ -3,17 +3,15 @@ function SetTheme(color)
     vim.cmd.colorscheme(color)
 
     vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-    --[[ vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" }) ]]
+    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 end
-
-local float_bg = "#1c1c21"
 
 require("rose-pine").setup {
     variant = "moon",
     disable_background = true,
     disable_italics = true,
     groups = {
-        panel = float_bg,
+        panel = "#1c1c21",
     },
     highlight_groups = {
         CursorLine = { bg = "none" },
@@ -30,15 +28,15 @@ require("nordic").setup {
     -- Enable italic comments.
     italic_comments = true,
     -- Enable general editor background transparency.
-    transparent_bg = true,
+    transparent_bg = false,
     cursorline = {
         bold = false,
     },
     override = {
         Visual = {
-            bg = "#242933"
-        }
-    }
+            bg = "#242933",
+        },
+    },
 }
 
 SetTheme("nordic")
