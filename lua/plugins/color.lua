@@ -24,4 +24,21 @@ require("rose-pine").setup {
     },
 }
 
-SetTheme()
+require("nordic").setup {
+    -- Enable bold keywords.
+    bold_keywords = true,
+    -- Enable italic comments.
+    italic_comments = true,
+    -- Enable general editor background transparency.
+    transparent_bg = true,
+    cursorline = {
+        bold = false,
+    },
+    override = {
+        Visual = {
+            bg = "#242933"
+        }
+    }
+}
+
+SetTheme("nordic")

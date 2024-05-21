@@ -32,6 +32,7 @@ require("mason-lspconfig").setup {
         "tsserver",
         "lua_ls",
         "gopls",
+        "clangd",
     },
     automatic_installation = true,
     handlers = {
@@ -71,6 +72,7 @@ require("mason-lspconfig").setup {
             local gofumpt = require("efmls-configs.formatters.gofumpt")
             local goimports = require("efmls-configs.formatters.goimports")
             local golines = require("efmls-configs.formatters.golines")
+            local c_formatter = require("efmls-configs.formatters.clang_format")
 
             local languages = {
                 typescript = { prettier },
@@ -79,6 +81,7 @@ require("mason-lspconfig").setup {
                 javascript = { prettier },
                 go = { gofumpt, goimports, golines },
                 lua = { stylua },
+                c = { c_formatter },
             }
 
             lspconfig.efm.setup {
@@ -145,7 +148,7 @@ cmp.setup {
 vim.diagnostic.config {
     -- update_in_insert = true,
     float = {
-        focusable = false,
+        focusable = true,
         style = "minimal",
         border = "rounded",
         source = "always",

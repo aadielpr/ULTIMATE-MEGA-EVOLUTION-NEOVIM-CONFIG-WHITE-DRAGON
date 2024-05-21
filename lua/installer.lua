@@ -24,6 +24,7 @@ require("packer").startup(function(use)
 
     -- colorscheme
     use { "rose-pine/neovim", as = "rose-pine" }
+    use { "AlexvZyl/nordic.nvim" }
 
     -- undotree
     use {
