@@ -1,41 +1,29 @@
-local opt = vim.opt
+vim.opt.guicursor = ""
 
-opt.cursorline = true
-opt.ignorecase = true
-opt.smartcase = true
-opt.belloff = "all"
-opt.history = 50
-opt.backup = false
-opt.writebackup = false
-opt.swapfile = false
-opt.fileformat = "unix"
-opt.wrap = false
-opt.updatetime = 50
-opt.scrolloff = 15
+vim.opt.nu = true
+vim.opt.relativenumber = true
 
--- Indenting
---[[ opt.shiftwidth = 2 ]]
---[[ opt.tabstop = 2 ]]
---[[ opt.softtabstop = 2 ]]
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
 
-opt.shiftwidth = 4
-opt.tabstop = 4
-opt.softtabstop = 4
-opt.autoindent = true
-opt.breakindent = true
-opt.smartindent = true
-opt.expandtab = true
-opt.smarttab = true
+vim.opt.smartindent = true
 
--- Numbers
-opt.number = true
-opt.numberwidth = 2
-opt.relativenumber = true
-opt.ruler = false
+vim.opt.wrap = false
 
-opt.signcolumn = "yes"
-opt.splitbelow = true
-opt.splitright = true
-opt.termguicolors = true
-opt.timeoutlen = 400
-opt.undofile = true
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.undofile = true
+
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
+
+vim.opt.termguicolors = true
+
+vim.opt.scrolloff = 8
+vim.opt.signcolumn = "yes"
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+
+vim.opt.updatetime = 50

@@ -25,6 +25,8 @@ local function on_attach(client, bufnr)
     vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
 end
 
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
 require("mason").setup {}
 require("mason-lspconfig").setup {
     ensure_installed = {
@@ -38,17 +40,13 @@ require("mason-lspconfig").setup {
         function(server_name) -- default handler (optional)
             lspconfig[server_name].setup {
                 on_attach = on_attach,
-                capabilities = vim.tbl_deep_extend(
-                    "force",
-                    {},
-                    vim.lsp.protocol.make_client_capabilities(),
-                    require("cmp_nvim_lsp").default_capabilities()
-                ),
+                capabilities = capabilities,
             }
         end,
         ["lua_ls"] = function()
             lspconfig.lua_ls.setup {
                 on_attach = on_attach,
+                capabilities = capabilities,
                 settings = {
                     Lua = {
                         diagnostics = {
@@ -108,6 +106,12 @@ cmp.setup {
             luasnip.lsp_expand(args.body)
         end,
     },
+    window = {
+        completion = cmp.config.window.bordered {
+            winhighlight = "Normal:Pmenu,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
+        },
+        documentation = cmp.config.window.bordered { winhighlight = "FloatBorder:FloatBorder" },
+    },
     mapping = {
         ["<Esc>"] = cmp.mapping.close(),
         ["<C-Space>"] = cmp.mapping.complete(),
@@ -117,24 +121,8 @@ cmp.setup {
             behavior = cmp.ConfirmBehavior.Replace,
             select = true,
         },
-        ["<Tab>"] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-                cmp.select_next_item()
-            elseif luasnip.expand_or_locally_jumpable() then
-                luasnip.expand_or_jump()
-            else
-                fallback()
-            end
-        end, { "i", "s" }),
-        ["<S-Tab>"] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-                cmp.select_prev_item()
-            elseif luasnip.jumpable(-1) then
-                luasnip.jump(-1)
-            else
-                fallback()
-            end
-        end, { "i", "s" }),
+        ["<C-n>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Select },
+        ["<C-p>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Select },
     },
     sources = {
         { name = "nvim_lsp" },
@@ -155,3 +143,10 @@ vim.diagnostic.config {
         prefix = "",
     },
 }
+
+-- Decorate floating windows
+vim.lsp.handlers["textDocument/hover"] =
+    vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
+
+vim.lsp.handlers["textDocument/signatureHelp"] =
+    vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
