@@ -26,6 +26,13 @@ require("packer").startup(function(use)
     use { "rose-pine/neovim", as = "rose-pine" }
     use { "AlexvZyl/nordic.nvim" }
 
+    -- harpoon
+    use {
+        "ThePrimeagen/harpoon",
+        branch = "harpoon2",
+        requires = { { "nvim-lua/plenary.nvim" } },
+    }
+
     -- undotree
     use {
         "mbbill/undotree",
