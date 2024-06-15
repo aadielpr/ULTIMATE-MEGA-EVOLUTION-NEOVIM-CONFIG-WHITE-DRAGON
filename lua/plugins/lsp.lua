@@ -1,4 +1,5 @@
 local lspconfig = require("lspconfig")
+local util = require("lspconfig.util")
 
 local function on_attach(client, bufnr)
     if client.name ~= "efm" then
@@ -17,7 +18,8 @@ local function on_attach(client, bufnr)
     vim.keymap.set("n", "fm", function()
         vim.lsp.buf.format { async = true }
     end, opts)
-    vim.keymap.set("n", "H", vim.lsp.buf.signature_help, opts)
+    vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
+    vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
 
     -- diagnostic
     vim.keymap.set("n", "E", vim.diagnostic.open_float, opts)
@@ -39,6 +41,13 @@ require("mason-lspconfig").setup {
     handlers = {
         function(server_name) -- default handler (optional)
             lspconfig[server_name].setup {
+                on_attach = on_attach,
+                capabilities = capabilities,
+            }
+        end,
+        ["tsserver"] = function()
+            lspconfig.tsserver.setup {
+                root_dir = util.root_pattern(".git", "package.json"),
                 on_attach = on_attach,
                 capabilities = capabilities,
             }
@@ -146,7 +155,7 @@ vim.diagnostic.config {
 
 -- Decorate floating windows
 vim.lsp.handlers["textDocument/hover"] =
-    vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
+    vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
 
 vim.lsp.handlers["textDocument/signatureHelp"] =
-    vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
+    vim.lsp.with(vim.lsp.handlers.signature_help, { border = "single" })
