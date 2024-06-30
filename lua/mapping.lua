@@ -13,9 +13,9 @@ vim.keymap.set("i", "<F1>", "")
 vim.keymap.set("n", "<leader>v", ":noh<CR>")
 
 -- Copy, Cut, Paste
-vim.keymap.set("", "<leader>c", '"+y')
+vim.keymap.set("", "y", '"+y')
 vim.keymap.set("", "<leader>x", '"+d')
-vim.keymap.set("", "<leader>p", '"+p')
+vim.keymap.set("", "p", '"+p')
 
 vim.keymap.set("n", "sj", ":m+<CR>")
 vim.keymap.set("n", "sk", ":m-2<CR>")

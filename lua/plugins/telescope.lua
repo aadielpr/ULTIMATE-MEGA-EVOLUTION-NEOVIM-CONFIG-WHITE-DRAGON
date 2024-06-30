@@ -38,3 +38,14 @@ vim.keymap.set("n", "ff", builtin.find_files, opt)
 vim.keymap.set("n", "ft", builtin.git_files, {})
 vim.keymap.set("n", "fb", builtin.buffers, opt)
 vim.keymap.set("n", "fg", builtin.live_grep, opt)
+vim.keymap.set("n", "<leader>pws", function()
+    local word = vim.fn.expand("<cword>")
+    builtin.grep_string { search = word }
+end)
+vim.keymap.set("n", "<leader>pWs", function()
+    local word = vim.fn.expand("<cWORD>")
+    builtin.grep_string { search = word }
+end)
+vim.keymap.set("n", "<leader>ps", function()
+    builtin.grep_string { search = vim.fn.input("Grep > ") }
+end)

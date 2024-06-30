@@ -1,8 +1,10 @@
-require("rose-pine").setup {
+local rosepine = require("rose-pine")
+
+rosepine.setup {
     variant = "moon", -- auto, main, moon, or dawn
     styles = {
         bold = true,
-        italic = false,
+        italic = true,
         transparency = true,
     },
 }

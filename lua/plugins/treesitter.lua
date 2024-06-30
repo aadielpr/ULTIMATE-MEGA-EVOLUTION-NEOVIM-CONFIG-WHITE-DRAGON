@@ -15,8 +15,4 @@ require("nvim-treesitter.configs").setup {
         enable = true,
         filetypes = { "html", "xml" },
     },
-    context_commentstring = {
-        enable = true,
-        enable_autocmd = false,
-    },
 }

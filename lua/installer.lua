@@ -49,12 +49,13 @@ require("packer").startup(function(use)
         "hrsh7th/nvim-cmp",
         requires = {
             "hrsh7th/cmp-nvim-lsp",
-            "hrsh7th/cmp-nvim-lua",
+            "saadparwaiz1/cmp_luasnip",
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-path",
             "L3MON4D3/LuaSnip",
         },
     }
+    use { "onsails/lspkind.nvim" }
 
     -- LSP stuff
     use { "williamboman/mason.nvim" }
@@ -65,10 +66,11 @@ require("packer").startup(function(use)
         tag = "v1.*", -- tag is optional, but recommended
         requires = { "neovim/nvim-lspconfig" },
     }
-    use {
-        "folke/trouble.nvim",
-        dependencies = { "nvim-tree/nvim-web-devicons" },
-    }
+
+    -- formatter
+       use({
+    "stevearc/conform.nvim",
+  })
 
     -- comment plugin
     use { "numToStr/Comment.nvim" }
@@ -76,9 +78,20 @@ require("packer").startup(function(use)
     -- bracket stuff
     use { "windwp/nvim-autopairs" }
     use { "windwp/nvim-ts-autotag" }
+    use { "lukas-reineke/indent-blankline.nvim" }
 
     -- nvim tree
     use { "kyazdani42/nvim-tree.lua" }
+    use {
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "v3.x",
+        requires = {
+            "nvim-lua/plenary.nvim",
+            "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+            "MunifTanjim/nui.nvim",
+            -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+        },
+    }
 
     -- telescope
     use {

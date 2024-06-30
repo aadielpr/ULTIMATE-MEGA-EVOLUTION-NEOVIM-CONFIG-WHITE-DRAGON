@@ -1,18 +1,15 @@
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
 require("installer")
 require("settings")
 require("mapping")
 
 require("plugins.color")
 require("plugins.lsp")
-require("plugins.autopairs")
+require("plugins.cmp")
 require("plugins.comment")
+require("plugins.conform")
 require("plugins.gitsigns")
-require("plugins.nvim-tree")
+require("plugins.neo-tree")
 require("plugins.telescope")
 require("plugins.harpoon")
 require("plugins.treesitter")
 require("plugins.undotree")
-require("plugins.trouble")
