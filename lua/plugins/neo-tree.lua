@@ -11,4 +11,4 @@ neotree.setup {
     },
 }
 
-vim.keymap.set("n", "<C-p>", ":Neotree toggle=true<CR>")
+vim.keymap.set("n", "<C-p>", ":Neotree toggle=true<CR>", { silent = true, noremap = true })
