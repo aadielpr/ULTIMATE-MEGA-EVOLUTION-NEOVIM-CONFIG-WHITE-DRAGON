@@ -68,9 +68,7 @@ require("packer").startup(function(use)
     }
 
     -- formatter
-       use({
-    "stevearc/conform.nvim",
-  })
+    use { "stevearc/conform.nvim" }
 
     -- comment plugin
     use { "numToStr/Comment.nvim" }
